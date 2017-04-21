@@ -9,6 +9,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DisplayComponent } from './display/display.component';
+import { DrillImgComponent } from './drill-img/drill-img.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DisplayComponent } from './display/display.component';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
-    DisplayComponent
+    DisplayComponent,
+    DrillImgComponent
   ],
   imports: [
     BrowserModule,

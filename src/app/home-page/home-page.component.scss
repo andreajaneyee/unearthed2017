@@ -1,3 +1,17 @@
-p {
-    background-color: grey;
+//Google fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$primary-font: 'Roboto', sans-serif;
+
+.background {
+    background-color: #FFF;
+    opacity: 80%;
+    width: 40%;
+    height: 60vh;
+
+}
+
+.container {
+    background-color: #FFF;
+    opacity: 20%;
 }

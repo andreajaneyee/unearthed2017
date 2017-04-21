@@ -1,27 +1,34 @@
 //Google fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+$icon-path: '/../img/mute-sound.png  ';
+$primary-font: 'Roboto', sans-serif;
+
 div.wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: grey;
+    background-color: #383838;
     color: white;
+    font-family: $primary-font;
     h1.header {
-        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        font-weight: lighter;
         padding: 0 0 0 20px;
     }
     button {
         width: 200px;
-        height: 70px;
-        background-color: darkslategrey;
+        height: 75px;
+        background-color: #2d2d2d;
         text-transform: uppercase;
         color: white;
+        border: none;
+        
         span.horn-icon {
-            background-color: black;
             width: 50px;
             height: 50px;
             color: white;
+            background: url(#{$icon-path}/../img/mute-sound.png) repeat-x fixed 0 0;
         }
     }
 }
