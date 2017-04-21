@@ -1,0 +1,20 @@
+div.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: grey;
+    color: white;
+    h1.header {}
+    button {
+        width: 200px;
+        height: 70px;
+        background-color: darkslategrey;
+        text-transform: uppercase;
+        span.horn-icon {
+            background-color: black;
+            width: 50px;
+            height: 50px;
+            color: white;
+        }
+    }
+}
