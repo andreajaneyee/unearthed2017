@@ -14,8 +14,9 @@ $primary-font: 'Roboto', sans-serif;
 }
 
 .tab-wrap {
-    background-color: #787878;
+    background-color: #383838;
     ul {
+        
         width: 100%;
         text-align: center;
         margin: 0;
@@ -28,10 +29,10 @@ $primary-font: 'Roboto', sans-serif;
             text-transform: uppercase;
             color: #afafaf;
             font-weight: 300;
-            padding: 14px 8%;
+            padding: 14px 103px;
         }
         
-        li:active {
+        li:hover {
             background-color: #212121;
             color: #FFF;
         }
