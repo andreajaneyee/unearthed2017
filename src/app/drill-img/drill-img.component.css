@@ -1,5 +1,57 @@
-
-
-div {
-   
+.tab-wrap {
+    background-color: #383838;
+    ul {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        li {
+            background-color: #2d2d2d;
+            display: inline;
+            text-transform: uppercase;
+            color: #afafaf;
+            font-weight: 300;
+            font-size: 15px;
+            width: 100%;
+            padding: 17px;
+            letter-spacing: 1px;
+            transition: all 0.8s cubic-bezier(1, 1.13, 0, .03);
+        }
+        li:hover {
+            background-color: #212121;
+            color: #FFF;
+        }
+    }
+}
+        
+/* Tab overline effect */
+.tab-hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.tab-hover:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  top: 0;
+  background: #ff6200;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.tab-hover:hover:before, .tab-hover:focus:before, .tab-hover:active:before {
+  right: 0;
 }
