@@ -1,5 +1,5 @@
 //Google fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
 $icon-path: '/../img/mute-sound.png  ';
 $primary-font: 'Roboto', sans-serif;
@@ -18,7 +18,7 @@ div.wrapper {
     }
     button {
         width: 200px;
-        height: 75px;
+        height: 65px;
         background-color: #2d2d2d;
         text-transform: uppercase;
         color: white;
