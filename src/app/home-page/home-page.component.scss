@@ -25,6 +25,8 @@ $solid-border: 1px solid black;
     	font-family: %primary-font;
     }
     height: 750px;
+    display: flex;
+    justify-content: space-between;
 }
 .container-wrap{
 	margin: 0 auto;
