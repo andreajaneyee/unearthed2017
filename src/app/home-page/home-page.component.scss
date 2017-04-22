@@ -2,10 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
 $primary-font: 'Roboto', sans-serif;
+
 $info-width: 40%;
 $container-wrap: 650px;
 $container-children-height: %container-height - 10px;
 
+$solid-border: 1px solid black;
 .body {
     font-family: %primary-font;
 }
@@ -91,23 +93,26 @@ $container-children-height: %container-height - 10px;
 }
 .container-wrap{
 	margin: 0 auto;
-	background-color: #333;
+	border: $solid-border;
 	width: 90%;
 	height: $container-wrap;
 }
 .container-wrap>*{
+	height: $container-wrap;
+	margin: 0 auto;
 	height: 100%;
 	background-color: #aba;
-	width: 45%;
-	margin: 0;
-	padding: 0;
 }
-.drill-img, .name-wrap{
+.drill-img, .details{
 	float: left;
 }
+.drill-img{
+	width: 35%;
+}
+.bars{
+	width:60%;
+}
 .name-wrap{
-	background-color: blue;
-	width: auto;
 	*{
 		float:left;
 		height: auto;
@@ -116,7 +121,6 @@ $container-children-height: %container-height - 10px;
 	.warning{
 		padding-left:1em;
 	}
-
 }
 .bars, .value{
 	float:right;
@@ -129,11 +133,27 @@ $container-children-height: %container-height - 10px;
 	clear:both;
 }
 .detail{
-	border: 1px black solid;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 50px;
 }
 .bar{
-	width: 32%;
 	background-color: green;
 	height: 20px;
 	margin-top: 40px;
+}
+.hookload>.bar{
+	width: 32%;
+}
+.torque>.bar{
+	width: 60%;
+}
+.pump-pressure>.bar{
+	width: 18%;
+}
+.rop>.bar{
+	width:68%;
+}
+.npt-detail>.bar{
+	width: 65%;
 }
