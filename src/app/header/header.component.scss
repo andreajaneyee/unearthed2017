@@ -18,6 +18,11 @@ div.wrapper {
         white-space: nowrap;
         padding-left: 1em;
     }
+    div.time-wrap{
+        p.times{
+            text-align: center;
+        }
+    }
     button {
         width: 200px;   
         background-color: #2d2d2d;

@@ -31,7 +31,7 @@ $solid-border: 1px solid black;
 }
 .container-wrap{
 	margin: 0 auto;
-	width: 90%;
+	width: 95%;
 	height: $container-wrap;
 	padding-top: 40px;
 }
@@ -40,15 +40,12 @@ $solid-border: 1px solid black;
 	height: 100%;
 
 }
-.drill-img, .details{
+.inputs, .details{
 	float: left;
 }
-.drill-img{
-	width: 45%;
+.inputs, .bars{
+	width: 49%;
 	background-color: #aba;
-}
-.bars{
-	width:45%;
 }
 .bars, .value{
 	float:right;
@@ -66,10 +63,6 @@ $solid-border: 1px solid black;
 	.warning{
 		padding-left:1em;
 	}
-}
-
-.time-wrap>*{
-	float: left;
 }
 .details, .bar{
 	clear:both;

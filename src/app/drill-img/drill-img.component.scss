@@ -60,3 +60,46 @@ $primary-font: 'Roboto', sans-serif;
 .tab-hover:hover:before, .tab-hover:focus:before, .tab-hover:active:before {
   right: 0;
 }
+.input-wrap{
+  height: auto;
+}
+.input{
+  border: 1px solid black;
+  clear: both;
+  height:150px;
+  button{
+    background-color: none;
+    border: none;
+  }
+  .bar-name-wrap>*{
+    float: left;
+  }
+  .bar-wrap{
+    clear: both;
+    .bar-level{
+      width: 80%;
+      height: 50px;
+      background-color: #e1e2e3;
+      .current-level{
+        background-color: #808285;
+        height: inherit;
+        width: 30%;
+        float: left;
+      }
+      .danger-level{
+        background-color: #C41425;
+        height: inherit;
+        float: right;
+        width: 20%;
+      }
+    }
+  }
+  .bar-wrap>*{
+    float:left;
+  }
+}
+.clearfix{
+  margin: 0;
+  height: 0;
+  clear:both;
+}
