@@ -9,21 +9,21 @@ section.wrapper {
     align-content: center;
     article.input {
         padding: 10px;
+        h2 {
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            &:first-child {
+                margin: 0;
+            }
+        }
         div {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
             margin: 0;
-            h2 {
-                text-transform: uppercase;
-                margin: 0;
-                padding: 0;
-                font-size: 20px;
-                &:first-child {
-                    margin: 0;
-                }
-            }
             p.hole-depth {
                 margin: 0;
                 padding: 0;
@@ -38,10 +38,6 @@ section.wrapper {
                 padding: 10px 0px;
                 ;
             }
-        }
-        h2 {
-            margin: 0;
-            margin-bottom: 10px;
         }
         article.bar {
             position: relative;

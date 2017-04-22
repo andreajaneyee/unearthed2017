@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
+import * as d3 from 'd3';
 
 export const INPUT_BAR_WIDTH = 360;
 
