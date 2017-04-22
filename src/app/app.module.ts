@@ -8,10 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DisplayComponent } from './display/display.component';
 import { DrillImgComponent } from './drill-img/drill-img.component';
 import { DataService } from './data.service';
 import { DataTestingComponent } from './data-testing/data-testing.component';
+import { InputDisplayComponent } from './input-display/input-display.component';
+import { OutputDisplayComponent } from './output-display/output-display.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { DataTestingComponent } from './data-testing/data-testing.component';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
-    DisplayComponent,
     DrillImgComponent,
-    DataTestingComponent
+    DataTestingComponent,
+    InputDisplayComponent,
+    OutputDisplayComponent
   ],
   imports: [
     BrowserModule,

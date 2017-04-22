@@ -1,0 +1,36 @@
+<section class="wrapper">
+    <article class="input">
+        <h2>Hole Depth <span class="hole-depth">150 m{{currentHoleDepth}}</span> </h2>
+    </article>
+    <article class="input">
+        <h2>Torque</h2>
+        <article class="bar">
+            <div class="bar-wrapper">
+                <img class="bar-content" [style.width]="torque" />
+            </div>
+        </article>
+    </article>
+    <article class="input">
+        <h2>Standpipe Pressure</h2>
+        <article class="bar">
+            <div class="bar-wrapper">
+                <img class="bar-content" [style.width]="standpipePressure" />
+            </div>
+
+        </article>
+    </article>
+    <article class="input">
+        <h2>Flow</h2>
+        <article class="bar">
+            <div class="bar-wrapper">
+                <img class="bar-content" [style.width]="flow" />
+            </div>
+        </article>
+    </article>
+
+    <article class="input">
+        <h2>Rate of Penetration</h2>
+        <!--RATE OF PENETRATION GRAPH GOES HERE-->
+    </article>
+
+</section>
