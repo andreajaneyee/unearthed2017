@@ -72,13 +72,22 @@ section.wrapper {
                 }
             }
             article.bar {
+                $content-height: 40px;
+                position: relative;
                 width: $bar-width;
                 border: 1px solid rgb(50, 50, 50);
                 display: flex;
                 flex-direction: row;
                 img.bar-content {
-                    height: 40px;
+                    height: $content-height;
                     background-color: rgb(50, 50, 50);
+                }
+                img.bar-maximum {
+                    position: absolute;
+                    right: 0;
+                    height: $content-height;
+                    width: $bar-width / 100 * 15;
+                    background-color: red;
                 }
             }
         }
