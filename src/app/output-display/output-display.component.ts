@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 
-export const BAR_WIDTH = 360;
+export const INPUT_BAR_WIDTH = 360;
 
 // VARIABLES TO FIND THE INDEX OF THE DATA POINTS
+export const HOLE_DEPTH_INDEX = 0;
 export const TORQUE_INDEX = 5;
 export const STANDPIPE_INDEX = 6;
 export const FLOW_INDEX = 7;
@@ -22,6 +23,7 @@ export class OutputDisplayComponent implements OnInit {
   torque: string = '0px';
   standpipePressure: string = '0px';
   flow: string = '0px';
+  depth: number = 0;
 
   // general data
   data: any;
@@ -45,9 +47,10 @@ export class OutputDisplayComponent implements OnInit {
           if (this.currentRowCount < this.data.length) {
             this.currentRow = this.data[this.currentRowCount];
             // Update the variables
-            this.torque = this.currentRow[TORQUE_INDEX] / TORQUE_MAXIMUM * BAR_WIDTH + 'px';
-            this.standpipePressure = this.currentRow[STANDPIPE_INDEX] / STANDPIPE_PRESSURE_MAXIMUM * BAR_WIDTH + 'px';
-            this.flow = this.currentRow[FLOW_INDEX] / FLOW_MAXIMUM * BAR_WIDTH + 'px';
+            this.depth = this.currentRow[HOLE_DEPTH_INDEX];
+            this.torque = this.currentRow[TORQUE_INDEX] / TORQUE_MAXIMUM * INPUT_BAR_WIDTH + 'px';
+            this.standpipePressure = this.currentRow[STANDPIPE_INDEX] / STANDPIPE_PRESSURE_MAXIMUM * INPUT_BAR_WIDTH + 'px';
+            this.flow = this.currentRow[FLOW_INDEX] / FLOW_MAXIMUM * INPUT_BAR_WIDTH + 'px';
           }
         }
 

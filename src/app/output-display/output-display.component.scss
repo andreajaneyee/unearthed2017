@@ -9,23 +9,32 @@ section.wrapper {
     align-content: center;
     article.input {
         padding: 10px;
-        h2 {
-            text-transform: uppercase;
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             margin: 0;
-            padding: 0;
-            margin-top: 10px;
-            font-size: 20px;
-            &:first-child {
+            h2 {
+                text-transform: uppercase;
                 margin: 0;
+                padding: 0;
+                font-size: 20px;
+                &:first-child {
+                    margin: 0;
+                }
             }
-            span.hole-depth {
-                width: 100px;
-                height: 40px;
+            p.hole-depth {
+                margin: 0;
+                width: 150px;
+                height: 20px;
+                text-align: center;
+                justify-content: center;
                 margin-left: 40px;
                 background-color: darkslategray;
                 color: white;
                 font-size: 15px;
-                padding: 10px 20px;
+                padding: 10px 0px;
                 ;
             }
         }
