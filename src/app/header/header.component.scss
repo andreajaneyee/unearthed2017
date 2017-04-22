@@ -14,7 +14,10 @@ div.wrapper {
     h1.header {
         text-transform: uppercase;
         font-weight: lighter;
-        padding: 0 0 0 20px;
+        height: 3vh;
+        line-height: 3vh;
+        white-space: nowrap;
+        padding-left: 1em;
     }
     button {
         width: 200px;   

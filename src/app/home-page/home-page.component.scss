@@ -14,7 +14,7 @@ $solid-border: 1px solid black;
 
 .background {
     background-color: #787878;
-    height: 100%;
+    height: 90vh;
     padding: 20px;
 }
 
@@ -25,6 +25,7 @@ $solid-border: 1px solid black;
     	font-family: %primary-font;
     }
     height: 750px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
@@ -43,11 +44,11 @@ $solid-border: 1px solid black;
 	float: left;
 }
 .drill-img{
-	width: 50%;
+	width: 45%;
 	background-color: #aba;
 }
 .bars{
-	width:50%;
+	width:45%;
 }
 .bars, .value{
 	float:right;
