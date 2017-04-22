@@ -4,9 +4,9 @@
 $primary-font: 'Roboto', sans-serif;
 
 $info-width: 40%;
-
 $container-wrap: 650px;
 $container-children-height: %container-height - 10px;
+
 $solid-border: 1px solid black;
 .body {
     font-family: %primary-font;
@@ -15,11 +15,11 @@ $solid-border: 1px solid black;
 .background {
     background-color: #787878;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .tab-wrap {
-    background-color: #787878;
+    background-color: #383838;
     ul {
         width: 100%;
         text-align: center;
@@ -33,12 +33,16 @@ $solid-border: 1px solid black;
             text-transform: uppercase;
             color: #afafaf;
             font-weight: 300;
-            padding: 14px 8%;
+            font-size: 15px;
+            width: 100%;
+            padding: 17px;
+            letter-spacing: 1px;
+            transition: all 0.8s cubic-bezier(1, 1.13, 0, .03);
         }
-        
-        li:active {
+        li:hover {
             background-color: #212121;
             color: #FFF;
+            
         }
     }
 }
@@ -76,8 +80,7 @@ $solid-border: 1px solid black;
 .container {
     background-color: rgba(255, 255, 255, 0.62);
     width: 90%;
-    margin: 0 auto;
-    margin-top: 40px;
+    margin: 40px auto;
     h3 {
     	font-family: %primary-font;
     }
