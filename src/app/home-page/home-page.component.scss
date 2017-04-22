@@ -1,15 +1,13 @@
 //Google fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-
-$primary-font: 'Roboto', sans-serif;
-
+$primary-font: 'Roboto',
+sans-serif;
 $info-width: 40%;
 $container-wrap: 650px;
 $container-children-height: %container-height - 10px;
-
 $solid-border: 1px solid black;
 .body {
-    font-family: %primary-font;
+    font-family: $primary-font;
 }
 
 .background {
@@ -22,75 +20,98 @@ $solid-border: 1px solid black;
     background-color: rgba(255, 255, 255, 0.62);
     width: 90%;
     h3 {
-    	font-family: %primary-font;
+        font-family: $primary-font;
     }
     height: 750px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
-.container-wrap{
-	margin: 0 auto;
-	width: 95%;
-	height: $container-wrap;
-	padding-top: 40px;
-}
-.container-wrap>*{
-	height: $container-wrap;
-	height: 100%;
 
+.container-wrap {
+    margin: 0 auto;
+    width: 90%;
+    height: $container-wrap;
+    padding-top: 40px;
 }
-.inputs, .details{
-	float: left;
+
+.drill-img {
+    width: 45%;
+    background-color: #aba;
 }
-.inputs, .bars{
-	width: 49%;
-	background-color: #aba;
+
+.bars,
+.value {
+    float: right;
+    margin: 0;
 }
-.bars, .value{
-	float:right;
-	margin:0;
+
+.inputs,
+.details {
+    float: left;
 }
-.details{
-	width: 50%;
+
+.inputs,
+.bars {
+    width: 49%;
+    background-color: #aba;
 }
-.name-wrap{
-	*{
-		float:left;
-		height: auto;
-		margin: 0;
-	}
-	.warning{
-		padding-left:1em;
-	}
+
+.bars,
+.value {
+    float: right;
+    margin: 0;
 }
-.details, .bar{
-	clear:both;
+
+.details {
+    width: 50%;
 }
-.detail{
-	margin-top: 50px;
+
+.name-wrap {
+    * {
+        float: left;
+        height: auto;
+        margin: 0;
+    }
+    .warning {
+        padding-left: 1em;
+    }
+}
+
+.details,
+.bar {
+    clear: both;
+}
+
+.detail {
+    margin-top: 50px;
 }
 
 
 /* BARS AND THEIR CORRESPONDING VALUES */
-.bar{
-	background-color: green;
-	height: 20px;
-	margin-top: 40px;
+
+.bar {
+    background-color: green;
+    height: 20px;
+    margin-top: 40px;
 }
 
-.hookload>.bar{
-	width: 32%;
+.hookload>.bar {
+    width: 32%;
 }
-.torque>.bar{
-	width: 60%;
+
+.torque>.bar {
+    width: 60%;
 }
-.pump-pressure>.bar{
-	width: 18%;
+
+.pump-pressure>.bar {
+    width: 18%;
 }
-.spp>.bar{
-	width:68%;
+
+.spp>.bar {
+    width: 68%;
 }
-.npt-detail>.bar{
-	width: 65%;
+
+.npt-detail>.bar {
+    width: 65%;
 }
