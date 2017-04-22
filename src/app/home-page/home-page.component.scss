@@ -3,6 +3,11 @@
 
 $primary-font: 'Roboto', sans-serif;
 
+<<<<<<< HEAD
+$info-width: 40%;
+
+$container-wrap: 650px;
+$container-children-height: %container-height - 10px;
 .body {
     font-family: %primary-font;
 }
@@ -75,11 +80,58 @@ $primary-font: 'Roboto', sans-serif;
     margin: 0 auto;
     margin-top: 40px;
     h3 {
-    	
-    	
-    }
-}
-.drill-img{
-	width: 40%;
-}
 
+    	font-family: %primary-font;
+
+
+    }
+    height: 750px;
+}
+.container-wrap{
+	margin: 0 auto;
+	background-color: #333;
+	width: 90%;
+	height: $container-wrap;
+}
+.container-wrap>*{
+	height: 100%;
+	background-color: #aba;
+	width: 45%;
+	margin: 0;
+	padding: 0;
+}
+.drill-img, .name-wrap{
+	float: left;
+}
+.name-wrap{
+	background-color: blue;
+	width: auto;
+	*{
+		float:left;
+		height: auto;
+		margin: 0;
+	}
+	.warning{
+		padding-left:1em;
+	}
+
+}
+.bars, .value{
+	float:right;
+	margin:0;
+}
+.time-wrap>*{
+	float: left;
+}
+.details, .bar{
+	clear:both;
+}
+.detail{
+	border: 1px black solid;
+}
+.bar{
+	width: 32%;
+	background-color: green;
+	height: 20px;
+	margin-top: 40px;
+}
