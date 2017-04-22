@@ -36,10 +36,15 @@ $container-children-height: %container-height - 10px;
             padding: 17px;
             letter-spacing: 1px;
             transition: all 0.8s cubic-bezier(1, 1.13, 0, .03);
+            img {
+                width: 10px;
+                height: auto;
+            }
         }
         li:hover {
             background-color: #212121;
             color: #FFF;
+            
             
         }
     }
