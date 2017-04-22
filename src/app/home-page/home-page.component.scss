@@ -38,20 +38,21 @@ $solid-border: 1px solid black;
             padding: 17px;
             letter-spacing: 1px;
             transition: all 0.8s cubic-bezier(1, 1.13, 0, .03);
-            img {
-                width: 10px;
-                height: auto;
-            }
         }
         li:hover {
             background-color: #212121;
             color: #FFF;
-            
-            
+        }
+        #icon1 {
+            background-image: url(../img/mute-sound.svg);
+            width: 25px;
+            height: 25px;
+            border: none;
+            color: #FFF;
         }
     }
 }
-
+        
 /* Tab overline effect */
 .tab-hover {
   display: inline-block;
