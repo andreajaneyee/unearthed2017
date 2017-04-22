@@ -127,6 +127,13 @@ export class InputDisplayComponent implements OnInit {
     this.pumpOutput = (this.pumpValue + this.pumpOffset) / PUMP_OUTPUT_MAXIMUM * INPUT_BAR_WIDTH + 'px';
   }
 
+  pause() {
+    this.isPaused = true;
+  }
+  resume() {
+    this.isPaused = false;
+  }
+
   test() {
     console.log(this.weightOffset);
   }
