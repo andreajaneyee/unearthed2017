@@ -26,6 +26,7 @@ section.wrapper {
             }
             p.hole-depth {
                 margin: 0;
+                padding: 0;
                 width: 150px;
                 height: 20px;
                 text-align: center;
@@ -37,6 +38,10 @@ section.wrapper {
                 padding: 10px 0px;
                 ;
             }
+        }
+        h2 {
+            margin: 0;
+            margin-bottom: 10px;
         }
         article.bar {
             position: relative;
