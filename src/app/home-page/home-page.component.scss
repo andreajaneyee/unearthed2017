@@ -7,7 +7,7 @@ $container-wrap: 650px;
 $container-children-height: %container-height - 10px;
 $solid-border: 1px solid black;
 .body {
-    font-family: %primary-font;
+    font-family: $primary-font;
 }
 
 .background {
@@ -35,23 +35,26 @@ $solid-border: 1px solid black;
     padding-top: 40px;
 }
 
-.container-wrap>* {
-    height: $container-wrap;
-    height: 100%;
-}
-
-.drill-img,
-.details {
-    float: left;
-}
-
 .drill-img {
     width: 45%;
     background-color: #aba;
 }
 
+.bars,
+.value {
+    float: right;
+    margin: 0;
+}
+
+.inputs,
+.details {
+    float: left;
+}
+
+.inputs,
 .bars {
-    width: 45%;
+    width: 49%;
+    background-color: #aba;
 }
 
 .bars,
@@ -73,10 +76,6 @@ $solid-border: 1px solid black;
     .warning {
         padding-left: 1em;
     }
-}
-
-.time-wrap>* {
-    float: left;
 }
 
 .details,
