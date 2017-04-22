@@ -12,4 +12,28 @@ export class PasonRow {
     differentialPressure: number;
     pumpOutput: number;
     weightOnBit: number;
+    // ROP
+    rateOfPenetration: number
+
+    constructor(
+        holeDepth: number,
+        rotaryRPM: number,
+        differentialPressure: number,
+        pumpOutput: number,
+        weightOnBit: number,
+        rotaryTorque: number,
+        standpipePressure: number,
+        flow: number,
+        rop: number
+    ){
+        this.holeDepth = holeDepth;
+        this.rotaryRPM = rotaryRPM;
+        this.differentialPressure = differentialPressure;
+        this.pumpOutput = pumpOutput;
+        this.weightOnBit = weightOnBit;
+        this.rotaryTorque = rotaryTorque;
+        this.standpipePressure = standpipePressure;
+        this.flow = flow;
+        this.rateOfPenetration = rop;
+    }
 }

@@ -1,3 +1,19 @@
-<p *ngFor="let row of data">
+<!--<p *ngFor="let row of data">
     {{row}}
-</p>
+</p>-->
+<div class="container" *ngIf="currentRow">
+    <p>{{currentRow}}</p>
+    <p>
+        Hole Depth: {{currentRow[0]}}
+    </p>
+    <p>
+        Rotary RPM: {{currentRow[1]}}
+    </p>
+    <p>
+        Differential Pressure:
+        <img class="differential-pressure" [style.width]="currentDifferentialPressure">
+        <span>{{currentDifferentialPressure}}</span>
+    </p>
+    <button (click)="pause()">Pause</button>
+    <button (click)="play()">Play</button>
+</div>
