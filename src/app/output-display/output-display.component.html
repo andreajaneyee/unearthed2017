@@ -9,7 +9,7 @@
         <h2>Torque</h2>
         <article class="bar">
             <div class="bar-wrapper">
-                <img class="bar-content" [style.width]="torque" />
+                <img class="bar-content" [style.width]="torqueWidth" />
             </div>
         </article>
     </article>
@@ -17,7 +17,7 @@
         <h2>Standpipe Pressure</h2>
         <article class="bar">
             <div class="bar-wrapper">
-                <img class="bar-content" [style.width]="standpipePressure" />
+                <img class="bar-content" [style.width]="pressureWidth" />
             </div>
 
         </article>
@@ -26,13 +26,19 @@
         <h2>Flow</h2>
         <article class="bar">
             <div class="bar-wrapper">
-                <img class="bar-content" [style.width]="flow" />
+                <img class="bar-content" [style.width]="flowWidth" />
             </div>
         </article>
     </article>
 
     <article class="input">
         <h2>Rate of Penetration</h2>
+        <!--FOR NOW-->
+        <article class="bar">
+            <div class="bar-wrapper">
+                <img class="bar-content" [style.width]="ropWidth" />
+            </div>
+        </article>
         <!--RATE OF PENETRATION GRAPH GOES HERE-->
     </article>
 

@@ -1,5 +1,5 @@
 <section class="wrapper">
-    <section class="filter">
+    <section class="filter" [style.order]="-1">
         <h3>Filters</h3>
         <ul class="tabs">
             <li class="tab" [class.tab-active]="isAllTabs" (click)="showAll()">All</li>
@@ -8,7 +8,7 @@
         </ul>
     </section>
 
-    <section class="input" *ngIf="showRotary">
+    <section class="input" *ngIf="showRotary" [style.order]="rotaryOrder">
         <h3>ROTARY RPM</h3>
         <section class="bar ">
             <img class="icon " (click)="decrease('rotary')" src="assets/images/minus.png " alt="minus icon ">
@@ -19,7 +19,7 @@
             <img class="icon " (click)="increase('rotary')" src="assets/images/plus.png " alt="plus icon ">
         </section>
     </section>
-    <section class="input" *ngIf="showWeight">
+    <section class="input" *ngIf="showWeight" [style.order]="weightOrder">
         <h3>Weight on bit</h3>
         <section class="bar ">
             <img class="icon" (click)="decrease('weight')" src="assets/images/minus.png " alt="minus icon ">
@@ -30,7 +30,7 @@
             <img class="icon " (click)="increase('weight')" src="assets/images/plus.png " alt="plus icon ">
         </section>
     </section>
-    <section class="input" *ngIf="showDiffPressure">
+    <section class="input" *ngIf="showDiffPressure" [style.order]="pressureOrder">
         <h3>differential pressure</h3>
         <section class="bar ">
             <img class="icon " (click)="decrease('pressure')" src="assets/images/minus.png " alt="minus icon ">
@@ -41,7 +41,7 @@
             <img class="icon " (click)="increase('pressure')" src="assets/images/plus.png " alt="plus icon ">
         </section>
     </section>
-    <section class="input" *ngIf="showPump">
+    <section class="input" *ngIf="showPump" [style.order]="pumpOrder">
         <h3>Pump Output</h3>
         <section class="bar ">
             <img class="icon" (click)="decrease('pump')" src="assets/images/minus.png " alt="minus icon ">

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import * as d3 from 'd3';
+import { DIFF_PRESSURE_MAXIMUM } from '../input-display/input-display.component';
 
 export const INPUT_BAR_WIDTH = 360;
 
@@ -9,11 +9,13 @@ export const HOLE_DEPTH_INDEX = 0;
 export const TORQUE_INDEX = 5;
 export const STANDPIPE_INDEX = 6;
 export const FLOW_INDEX = 7;
+export const ROP_INDEX = 8;
 
 // VARIABLES TO CONTROL THE RANGES OF THE OUTPUTS
 export const TORQUE_MAXIMUM = 150;
 export const STANDPIPE_PRESSURE_MAXIMUM = 2500;
 export const FLOW_MAXIMUM = 100;
+export const ROP_MAXIMUM = 100;
 
 @Component({
   selector: 'app-output-display',
@@ -21,10 +23,34 @@ export const FLOW_MAXIMUM = 100;
   styleUrls: ['./output-display.component.scss']
 })
 export class OutputDisplayComponent implements OnInit {
-  torque: string = '0px';
-  standpipePressure: string = '0px';
-  flow: string = '0px';
+  // WIDTHS OF THE BARS
+  torqueWidth: string = '0px';
+  pressureWidth: string = '0px';
+  flowWidth: string = '0px';
+  ropWidth: string = '0px';
+  // MAIN VARIABLSE TO DISPLAY THE BARS
+  torque: number = 0;
+  pressure: number = 0;
+  flow: number = 0;
+  rop: number = 0;
   depth: number = 0;
+  // VARIABLES TO STORE THE VALUES ONLY
+  torqueValue: number = 0;
+  pressureValue: number = 0;
+  flowValue: number = 0;
+  ropValue: number = 0;
+
+  // BENCHMARK OFFSETS
+  torqueBMOffset: number = 0;
+  pressureBMOffset: number = 0;
+  flowBMOffset: number = 0;
+  ropBMOffset: number = 0;
+
+  // ADJUSTMENT OFFSETS
+  torqueAdjOffset: number = 0;
+  pressureAdjOffset: number = 0;
+  flowAdjOffset: number = 0;
+  ropAdjOffset: number = 0;
 
   // general data
   data: any;
@@ -48,15 +74,36 @@ export class OutputDisplayComponent implements OnInit {
           if (this.currentRowCount < this.data.length) {
             this.currentRow = this.data[this.currentRowCount];
             // Update the variables
-            this.depth = this.currentRow[HOLE_DEPTH_INDEX];
-            this.torque = this.currentRow[TORQUE_INDEX] / TORQUE_MAXIMUM * INPUT_BAR_WIDTH + 'px';
-            this.standpipePressure = this.currentRow[STANDPIPE_INDEX] / STANDPIPE_PRESSURE_MAXIMUM * INPUT_BAR_WIDTH + 'px';
-            this.flow = this.currentRow[FLOW_INDEX] / FLOW_MAXIMUM * INPUT_BAR_WIDTH + 'px';
+            this.depth = eval(this.currentRow[HOLE_DEPTH_INDEX]);
+            this.torqueValue = eval(this.currentRow[TORQUE_INDEX]);
+            this.pressureValue = eval(this.currentRow[STANDPIPE_INDEX]);
+            this.flowValue = eval(this.currentRow[FLOW_INDEX]);
+            this.ropValue = eval(this.currentRow[ROP_INDEX]);
           }
+          this.updateOutputsDisplay();
         }
+        
 
       }, 10)
     })
+  }
+
+  updateOutputsDisplay() {
+    this.torque = (this.torqueValue + this.torqueAdjOffset) / TORQUE_MAXIMUM * 100;
+    this.pressure = (this.pressureValue + this.pressureAdjOffset) / DIFF_PRESSURE_MAXIMUM * 100;
+    this.flow = (this.flowValue + this.flowAdjOffset) / FLOW_MAXIMUM * 100;
+        console.log(this.flowValue)
+        console.log(this.flowValue + this.flowAdjOffset)
+        console.log(FLOW_MAXIMUM)
+    console.log((this.flowValue + this.flowAdjOffset) / FLOW_MAXIMUM * 100);
+    this.rop = (this.ropValue + this.ropAdjOffset) / ROP_MAXIMUM * 100;
+    this.updateOutputWidths();
+  }
+  updateOutputWidths() {
+    this.torqueWidth = this.torque + '%';
+    this.pressureWidth = this.pressure + '%';
+    this.flowWidth = this.flow + '%';
+    this.ropWidth = this.rop + '%';
   }
 
   start() {
@@ -67,6 +114,65 @@ export class OutputDisplayComponent implements OnInit {
   }
 
 }
+
+// // set the dimensions and margins of the graph
+// var margin = {top: 20, right: 20, bottom: 30, left: 50},
+//     width = 960 - margin.left - margin.right,
+//     height = 500 - margin.top - margin.bottom;
+
+// // parse the date / time
+// var parseTime = d3.timeParse("%d-%b-%y");
+
+// // set the ranges
+// var x = d3.scaleTime().range([0, width]);
+// var y = d3.scaleLinear().range([height, 0]);
+
+// // define the line
+// var valueline = d3.line()
+//     .x(function(d) { return x(d.date); })
+//     .y(function(d) { return y(d.close); });
+
+// // append the svg obgect to the body of the page
+// // appends a 'group' element to 'svg'
+// // moves the 'group' element to the top left margin
+// var svg = d3.select("body").append("svg")
+//     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom)
+//   .append("g")
+//     .attr("transform",
+//           "translate(" + margin.left + "," + margin.top + ")");
+
+// // Get the data
+// d3.csv("data.csv", function(error, data) {
+//   if (error) throw error;
+
+//   // format the data
+//   data.forEach(function(d) {
+//       d.date = parseTime(d.date);
+//       d.close = +d.close;
+//   });
+
+//   // Scale the range of the data
+//   x.domain(d3.extent(data, function(d) { return d.date; }));
+//   y.domain([0, d3.max(data, function(d) { return d.close; })]);
+
+//   // Add the valueline path.
+//   svg.append("path")
+//       .data([data])
+//       .attr("class", "line")
+//       .attr("d", valueline);
+
+//   // Add the X Axis
+//   svg.append("g")
+//       .attr("transform", "translate(0," + height + ")")
+//       .call(d3.axisBottom(x));
+
+//   // Add the Y Axis
+//   svg.append("g")
+//       .call(d3.axisLeft(y));
+
+// });
+
 
 // function displayGraphExample(id, width, height, interpolation, animate, updateDelay, transitionDelay) {
 //   // create an SVG element inside the #graph div that fills 100% of the div
@@ -87,20 +193,19 @@ export class OutputDisplayComponent implements OnInit {
 //       // verbose logging to show what's actually being done
 //       //console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
 //       // return the X coordinate where we want to plot this datapoint
-//       return x(i);
+//       return d[0];
 //     })
 //     .y(function (d) {
 //       // verbose logging to show what's actually being done
 //       //console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
 //       // return the Y coordinate where we want to plot this datapoint
-//       return y(d);
-//     }).
-//     .interpolate(interpolation)
+//       return d[1];
+//     }).curve(d3.curveCatmullRom.alpha(0.5));
 
 //   // display the line by appending an svg:path element with the data line we created above
-//   graph.append("svg:path").attr("d", line(data));
+//   // graph.append("svg:path").attr("d",data);
 //   // or it can be done like this
-//   //graph.selectAll("path").data([data]).enter().append("svg:path").attr("d", line);
+//   graph.selectAll("path").data([data]).enter().append("svg:path").attr("d", line);
 
 
 //   function redrawWithAnimation() {

@@ -37,6 +37,20 @@ export class InputDisplayComponent implements OnInit {
   weightValue: number = 0;
   pressureValue: number = 0;
   pumpValue: number = 0;
+
+  // VARIABLES TO CONTROL ORDER OF INPUTS
+  rotaryOrder: number = 1;
+  weightOrder: number = 1;
+  pressureOrder: number = 1;
+  pumpOrder: number = 1;
+
+
+  // VARIABLES TO MOCK INPUTS
+  rotaryParam: number = 0;
+  weightParam: number = 0;
+  pressureParam: number = 0;
+  pumpParam: number = 0;
+
   // Offsets to "mock" the improvements
   rotaryOffset: number = 0;
   weightOffset: number = 0;
@@ -78,11 +92,11 @@ export class InputDisplayComponent implements OnInit {
             this.currentRow = this.data[this.currentRowCount];
             // Update the values
             this.rotaryValue = this.currentRow[ROTARY_INDEX];
-            this.weightValue = this.currentRow[WEIGHT_INDEX] / WEIGHT_MAXIMUM * INPUT_BAR_WIDTH;
-            this.pressureValue = this.currentRow[DIFF_PRESSURE_INDEX] / DIFF_PRESSURE_MAXIMUM * INPUT_BAR_WIDTH;
-            this.pumpValue = this.currentRow[PUMP_OUTPUT_INDEX] / PUMP_OUTPUT_MAXIMUM * INPUT_BAR_WIDTH;
+            this.weightValue = this.currentRow[WEIGHT_INDEX];
+            this.pressureValue = this.currentRow[DIFF_PRESSURE_INDEX];
+            this.pumpValue = this.currentRow[PUMP_OUTPUT_INDEX];
             // Update the widths
-            this.updateInputsDisplay();
+            // this.updateInputsDisplay();
 
           }
         }
@@ -93,38 +107,50 @@ export class InputDisplayComponent implements OnInit {
 
   increase(param: string) {
     if (param == 'rotary') {
-      this.rotaryOffset += ROTARY_INCREMENT;
+      this.rotaryParam = (this.rotaryParam + ROTARY_INCREMENT);
     } else if (param == 'weight') {
-      this.weightOffset += WEIGHT_INCREMENT;
+      this.weightParam = (this.weightParam + WEIGHT_INCREMENT);
     } else if (param == 'pressure') {
-      this.pressureOffset += PRESSURE_INCREMENT;
+      this.pressureParam = (this.pressureParam + PRESSURE_INCREMENT);
     } else if (param == 'pump') {
-      this.pumpOffset += PUMP_INCREMENT;
+      this.pumpParam = (this.pumpParam + PUMP_INCREMENT);
     }
     this.updateInputsDisplay();
   }
   decrease(param: string) {
     if (param == 'rotary') {
-      this.rotaryOffset -= ROTARY_INCREMENT;
+      this.rotaryParam = (this.rotaryParam - ROTARY_INCREMENT);
     } else if (param == 'weight') {
-      this.weightOffset -= WEIGHT_INCREMENT;
+      this.weightParam = (this.weightParam - WEIGHT_INCREMENT);
     } else if (param == 'pressure') {
-      this.pressureOffset -= PRESSURE_INCREMENT;
+      this.pressureParam = (this.pressureParam - PRESSURE_INCREMENT);
     } else if (param == 'pump') {
-      this.pumpOffset -= PUMP_INCREMENT;
+      this.pumpParam = (this.pumpParam - PUMP_INCREMENT);
     }
     this.updateInputsDisplay();
-    this.test();
   }
 
   /**
    * Update the values of the input bar based on their values
    */
   updateInputsDisplay() {
-    this.rotary = (this.rotaryValue + this.rotaryOffset) / ROTARY_MAXIMUM * INPUT_BAR_WIDTH + 'px';
-    this.weight = (this.weightValue + this.weightOffset) / WEIGHT_MAXIMUM * INPUT_BAR_WIDTH + 'px';
-    this.diffPressure = (this.pressureValue + this.pressureOffset) / DIFF_PRESSURE_MAXIMUM * INPUT_BAR_WIDTH + 'px';
-    this.pumpOutput = (this.pumpValue + this.pumpOffset) / PUMP_OUTPUT_MAXIMUM * INPUT_BAR_WIDTH + 'px';
+    this.rotary = this.floor100((this.rotaryParam ) / ROTARY_MAXIMUM * 100) + '%';
+    this.weight = this.floor100((this.weightParam ) / WEIGHT_MAXIMUM * 100) + '%';
+    this.diffPressure = this.floor100((this.pressureParam) / DIFF_PRESSURE_MAXIMUM * 100) + '%';
+    this.pumpOutput = this.floor100((this.pumpParam ) / PUMP_OUTPUT_MAXIMUM * 100) + '%';
+    this.updateInputsOrder();
+  }
+  /**
+   * Update the order of the inputs
+   */
+  updateInputsOrder() {
+    this.rotaryOrder = (this.rotaryParam ) / ROTARY_MAXIMUM * 100;
+    this.weightOrder = (this.weightParam ) / WEIGHT_MAXIMUM * 100;
+    this.pressureOrder = (this.pressureParam) / DIFF_PRESSURE_MAXIMUM * 100;
+    this.pumpOrder = ((this.pumpParam ) / PUMP_OUTPUT_MAXIMUM * 100);
+  }
+  floor100(number: number): number {
+    return number = number > 100 ? 100 : number;
   }
 
   pause() {
