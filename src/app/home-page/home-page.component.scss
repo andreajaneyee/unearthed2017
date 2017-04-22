@@ -1,12 +1,10 @@
 //Google fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-
-$primary-font: 'Roboto', sans-serif;
-
+$primary-font: 'Roboto',
+sans-serif;
 $info-width: 40%;
 $container-wrap: 650px;
 $container-children-height: %container-height - 10px;
-
 $solid-border: 1px solid black;
 .body {
     font-family: %primary-font;
@@ -22,82 +20,99 @@ $solid-border: 1px solid black;
     background-color: rgba(255, 255, 255, 0.62);
     width: 90%;
     h3 {
-    	font-family: %primary-font;
+        font-family: $primary-font;
     }
     height: 750px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
-.container-wrap{
-	margin: 0 auto;
-	width: 90%;
-	height: $container-wrap;
-	padding-top: 40px;
-}
-.container-wrap>*{
-	height: $container-wrap;
-	height: 100%;
 
-}
-.drill-img, .details{
-	float: left;
-}
-.drill-img{
-	width: 45%;
-	background-color: #aba;
-}
-.bars{
-	width:45%;
-}
-.bars, .value{
-	float:right;
-	margin:0;
-}
-.details{
-	width: 50%;
-}
-.name-wrap{
-	*{
-		float:left;
-		height: auto;
-		margin: 0;
-	}
-	.warning{
-		padding-left:1em;
-	}
+.container-wrap {
+    margin: 0 auto;
+    width: 90%;
+    height: $container-wrap;
+    padding-top: 40px;
 }
 
-.time-wrap>*{
-	float: left;
+.container-wrap>* {
+    height: $container-wrap;
+    height: 100%;
 }
-.details, .bar{
-	clear:both;
+
+.drill-img,
+.details {
+    float: left;
 }
-.detail{
-	margin-top: 50px;
+
+.drill-img {
+    width: 45%;
+    background-color: #aba;
+}
+
+.bars {
+    width: 45%;
+}
+
+.bars,
+.value {
+    float: right;
+    margin: 0;
+}
+
+.details {
+    width: 50%;
+}
+
+.name-wrap {
+    * {
+        float: left;
+        height: auto;
+        margin: 0;
+    }
+    .warning {
+        padding-left: 1em;
+    }
+}
+
+.time-wrap>* {
+    float: left;
+}
+
+.details,
+.bar {
+    clear: both;
+}
+
+.detail {
+    margin-top: 50px;
 }
 
 
 /* BARS AND THEIR CORRESPONDING VALUES */
-.bar{
-	background-color: green;
-	height: 20px;
-	margin-top: 40px;
+
+.bar {
+    background-color: green;
+    height: 20px;
+    margin-top: 40px;
 }
 
-.hookload>.bar{
-	width: 32%;
+.hookload>.bar {
+    width: 32%;
 }
-.torque>.bar{
-	width: 60%;
+
+.torque>.bar {
+    width: 60%;
 }
-.pump-pressure>.bar{
-	width: 18%;
+
+.pump-pressure>.bar {
+    width: 18%;
 }
-.spp>.bar{
-	width:68%;
+
+.spp>.bar {
+    width: 68%;
 }
-.npt-detail>.bar{
-	width: 65%;
+
+.npt-detail>.bar {
+    width: 65%;
 }

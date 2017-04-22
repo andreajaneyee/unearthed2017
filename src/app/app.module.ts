@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DisplayComponent } from './display/display.component';
 import { DrillImgComponent } from './drill-img/drill-img.component';
+import { DataService } from './data.service';
+import { DataTestingComponent } from './data-testing/data-testing.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { DrillImgComponent } from './drill-img/drill-img.component';
     HeaderComponent,
     FooterComponent,
     DisplayComponent,
-    DrillImgComponent
+    DrillImgComponent,
+    DataTestingComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,9 @@ import { DrillImgComponent } from './drill-img/drill-img.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
