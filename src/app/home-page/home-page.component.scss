@@ -6,7 +6,8 @@ $info-width: 40%;
 $container-wrap: 650px;
 $container-children-height: %container-height - 10px;
 $solid-border: 1px solid black;
-.body {
+.body,
+h1 {
     font-family: $primary-font;
 }
 
@@ -29,89 +30,76 @@ $solid-border: 1px solid black;
 }
 
 .container-wrap {
-    margin: 0 auto;
-    width: 90%;
+    padding: 20px 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
     height: $container-wrap;
-    padding-top: 40px;
 }
 
-.drill-img {
-    width: 45%;
-    background-color: #aba;
-}
-
-.bars,
-.value {
-    float: right;
-    margin: 0;
-}
-
-.inputs,
-.details {
-    float: left;
-}
-
-.inputs,
-.bars {
-    width: 49%;
-    background-color: #aba;
-}
-
-.bars,
-.value {
-    float: right;
-    margin: 0;
-}
-
-.details {
-    width: 50%;
-}
-
-.name-wrap {
-    * {
-        float: left;
-        height: auto;
-        margin: 0;
-    }
-    .warning {
-        padding-left: 1em;
-    }
-}
-
-.details,
-.bar {
-    clear: both;
-}
-
-.detail {
-    margin-top: 50px;
-}
-
-
-/* BARS AND THEIR CORRESPONDING VALUES */
-
-.bar {
-    background-color: green;
-    height: 20px;
-    margin-top: 40px;
-}
-
-.hookload>.bar {
-    width: 32%;
-}
-
-.torque>.bar {
-    width: 60%;
-}
-
-.pump-pressure>.bar {
-    width: 18%;
-}
-
-.spp>.bar {
-    width: 68%;
-}
-
-.npt-detail>.bar {
-    width: 65%;
-}
+// .drill-img {
+//     width: 45%;
+//     background-color: #aba;
+// }
+// .bars,
+// .value {
+//     float: right;
+//     margin: 0;
+// }
+// .inputs,
+// .details {
+//     float: left;
+// }
+// .inputs,
+// .bars {
+//     width: 49%;
+//     background-color: #aba;
+// }
+// .bars,
+// .value {
+//     float: right;
+//     margin: 0;
+// }
+// .details {
+//     width: 50%;
+// }
+// .name-wrap {
+//     * {
+//         float: left;
+//         height: auto;
+//         margin: 0;
+//     }
+//     .warning {
+//         padding-left: 1em;
+//     }
+// }
+// .details,
+// .bar {
+//     clear: both;
+// }
+// .detail {
+//     margin-top: 50px;
+// }
+// /* BARS AND THEIR CORRESPONDING VALUES */
+// .bar {
+//     background-color: green;
+//     height: 20px;
+//     margin-top: 40px;
+// }
+// .hookload>.bar {
+//     width: 32%;
+// }
+// .torque>.bar {
+//     width: 60%;
+// }
+// .pump-pressure>.bar {
+//     width: 18%;
+// }
+// .spp>.bar {
+//     width: 68%;
+// }
+// .npt-detail>.bar {
+//     width: 65%;
+// }
