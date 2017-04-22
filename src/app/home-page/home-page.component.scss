@@ -94,24 +94,31 @@ $solid-border: 1px solid black;
 }
 .container-wrap{
 	margin: 0 auto;
-	border: $solid-border;
 	width: 90%;
 	height: $container-wrap;
+	padding-top: 40px;
 }
 .container-wrap>*{
 	height: $container-wrap;
-	margin: 0 auto;
 	height: 100%;
-	background-color: #aba;
+
 }
 .drill-img, .details{
 	float: left;
 }
 .drill-img{
 	width: 35%;
+	background-color: #aba;
 }
 .bars{
 	width:60%;
+}
+.bars, .value{
+	float:right;
+	margin:0;
+}
+.details{
+	width: 80%;
 }
 .name-wrap{
 	*{
@@ -123,10 +130,7 @@ $solid-border: 1px solid black;
 		padding-left:1em;
 	}
 }
-.bars, .value{
-	float:right;
-	margin:0;
-}
+
 .time-wrap>*{
 	float: left;
 }
@@ -134,15 +138,17 @@ $solid-border: 1px solid black;
 	clear:both;
 }
 .detail{
-	width: 90%;
-	margin: 0 auto;
 	margin-top: 50px;
 }
+
+
+/* BARS AND THEIR CORRESPONDING VALUES */
 .bar{
 	background-color: green;
 	height: 20px;
 	margin-top: 40px;
 }
+
 .hookload>.bar{
 	width: 32%;
 }
