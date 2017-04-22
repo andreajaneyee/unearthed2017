@@ -15,7 +15,7 @@ export const ROP_INDEX = 8;
 export const TORQUE_MAXIMUM = 150;
 export const STANDPIPE_PRESSURE_MAXIMUM = 2500;
 export const FLOW_MAXIMUM = 100;
-export const ROP_MAXIMUM = 100;
+export const ROP_MAXIMUM = 110;
 
 @Component({
   selector: 'app-output-display',
@@ -40,11 +40,21 @@ export class OutputDisplayComponent implements OnInit {
   flowValue: number = 0;
   ropValue: number = 0;
 
-  // BENCHMARK OFFSETS
-  torqueBMOffset: number = 0;
-  pressureBMOffset: number = 0;
-  flowBMOffset: number = 0;
-  ropBMOffset: number = 0;
+  // MOCK TECHLIMIT VALUES
+  torqueTL: number = 0;
+  pressureTL: number = 0;
+  flowTL: number = 0;
+  ropTL: number = 0;
+  // TECHLIMIT MARK POSITIONS
+  torqueTLPosition: string = '0px';
+  pressureTLPosition: string = '0px';
+  flowTLPosition: string = '0px';
+  ropTLPosition: string = '0px';
+  // TECHLIMIT OFFSETS
+  torqueTLOffset: number = 0;
+  pressureTLOffset: number = 0;
+  flowTLOffset: number = 0;
+  ropTLOffset: number = 0;
 
   // ADJUSTMENT OFFSETS
   torqueAdjOffset: number = 0;
@@ -66,8 +76,6 @@ export class OutputDisplayComponent implements OnInit {
     this.dataService.getScenarioData().subscribe(wholeData => {
       this.data = wholeData.slice(1);
       this.currentRow = this.data[0];
-      console.log(this.currentRow);
-      // console.log(this.data);
       setInterval(() => {
         this.currentRowCount++;
         if (!this.isPaused) {
@@ -79,23 +87,40 @@ export class OutputDisplayComponent implements OnInit {
             this.pressureValue = eval(this.currentRow[STANDPIPE_INDEX]);
             this.flowValue = eval(this.currentRow[FLOW_INDEX]);
             this.ropValue = eval(this.currentRow[ROP_INDEX]);
-          }
-          this.updateOutputsDisplay();
-        }
-        
 
-      }, 10)
+            // update the mock techlimit
+            this.torqueTL = TORQUE_MAXIMUM * 0.8 + TORQUE_MAXIMUM * 0.01 * Math.random();
+            this.pressureTL = DIFF_PRESSURE_MAXIMUM * 0.8 + DIFF_PRESSURE_MAXIMUM * 0.01 * Math.random();
+            this.flowTL = FLOW_MAXIMUM * 0.8 + FLOW_MAXIMUM * 0.01 * Math.random();
+            this.ropTL = ROP_MAXIMUM * 0.7 + ROP_MAXIMUM * 0.2 * Math.random();
+            this.updateTechLimitMark();
+            this.updateOutputsDisplay();
+          }
+        }
+      }, 100)
     })
+  }
+
+  updateTechLimitMark() {
+    let temporary: number;
+
+    temporary = this.torqueTL / TORQUE_MAXIMUM * 100;
+    this.torqueTLPosition = temporary + '%';
+
+    temporary = this.pressureTL / DIFF_PRESSURE_MAXIMUM * 100;
+    this.pressureTLPosition = temporary + '%';
+
+    temporary = this.flowTL / FLOW_MAXIMUM * 100;
+    this.flowTLPosition = temporary + '%';
+
+    temporary = this.ropTL / ROP_MAXIMUM * 100;
+    this.ropTLPosition = temporary + '%';
   }
 
   updateOutputsDisplay() {
     this.torque = (this.torqueValue + this.torqueAdjOffset) / TORQUE_MAXIMUM * 100;
     this.pressure = (this.pressureValue + this.pressureAdjOffset) / DIFF_PRESSURE_MAXIMUM * 100;
     this.flow = (this.flowValue + this.flowAdjOffset) / FLOW_MAXIMUM * 100;
-        console.log(this.flowValue)
-        console.log(this.flowValue + this.flowAdjOffset)
-        console.log(FLOW_MAXIMUM)
-    console.log((this.flowValue + this.flowAdjOffset) / FLOW_MAXIMUM * 100);
     this.rop = (this.ropValue + this.ropAdjOffset) / ROP_MAXIMUM * 100;
     this.updateOutputWidths();
   }
@@ -103,7 +128,7 @@ export class OutputDisplayComponent implements OnInit {
     this.torqueWidth = this.torque + '%';
     this.pressureWidth = this.pressure + '%';
     this.flowWidth = this.flow + '%';
-    this.ropWidth = this.rop + '%';
+    this.ropWidth = Math.floor(this.rop) + '%';
   }
 
   start() {

@@ -10,6 +10,10 @@
         <article class="bar">
             <div class="bar-wrapper">
                 <img class="bar-content" [style.width]="torqueWidth" />
+                <article class="techlimit" [style.left]="torqueTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{torqueTL}}</span>
+                </article>
             </div>
         </article>
     </article>
@@ -18,6 +22,10 @@
         <article class="bar">
             <div class="bar-wrapper">
                 <img class="bar-content" [style.width]="pressureWidth" />
+                <article class="techlimit" [style.left]="pressureTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{pressureTL}}</span>
+                </article>
             </div>
 
         </article>
@@ -27,6 +35,10 @@
         <article class="bar">
             <div class="bar-wrapper">
                 <img class="bar-content" [style.width]="flowWidth" />
+                <article class="techlimit" [style.left]="flowTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{flowTL}}</span>
+                </article>
             </div>
         </article>
     </article>
@@ -37,6 +49,10 @@
         <article class="bar">
             <div class="bar-wrapper">
                 <img class="bar-content" [style.width]="ropWidth" />
+                <article class="techlimit" [style.left]="ropTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{ropTL}}</span>
+                </article>
             </div>
         </article>
         <!--RATE OF PENETRATION GRAPH GOES HERE-->

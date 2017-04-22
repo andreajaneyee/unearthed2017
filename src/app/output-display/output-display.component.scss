@@ -1,3 +1,4 @@
+@import '../sass/mixins';
 $bar-width: 360px;
 section.wrapper {
     width: 400px;
@@ -44,14 +45,28 @@ section.wrapper {
             margin-left: 20px;
             width: $bar-width;
             div.bar-wrapper {
+                margin-top: 20px;
                 position: relative;
                 top: 0;
                 left: 0;
                 width: $bar-width;
                 height: 40px;
                 border: 1px solid black;
+                article.techlimit {
+                    @include transition-basic();
+                    position: absolute;
+                    height: 40px;
+                    img.techlimit {
+                        position: relative;
+                        top: -20px;
+                        left: -10px;
+                        height: 60px;
+                        width: 20px;
+                    }
+                }
             }
             img.bar-content {
+                @include transition-basic();
                 height: 40px;
                 background-color: orange;
             }
