@@ -1,0 +1,64 @@
+$bar-width: 360px;
+section.wrapper {
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    article.input {
+        padding: 10px;
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            h2 {
+                text-transform: uppercase;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                &:first-child {
+                    margin: 0;
+                }
+            }
+            p.hole-depth {
+                margin: 0;
+                padding: 0;
+                width: 150px;
+                height: 20px;
+                text-align: center;
+                justify-content: center;
+                margin-left: 40px;
+                background-color: darkslategray;
+                color: white;
+                font-size: 15px;
+                padding: 10px 0px;
+                ;
+            }
+        }
+        h2 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        article.bar {
+            position: relative;
+            margin-left: 20px;
+            width: $bar-width;
+            div.bar-wrapper {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: $bar-width;
+                height: 40px;
+                border: 1px solid black;
+            }
+            img.bar-content {
+                height: 40px;
+                background-color: orange;
+            }
+        }
+    }
+}

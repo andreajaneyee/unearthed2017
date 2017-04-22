@@ -6,13 +6,13 @@ $info-width: 40%;
 $container-wrap: 650px;
 $container-children-height: %container-height - 10px;
 $solid-border: 1px solid black;
-.body {
+.body,
+h1 {
     font-family: $primary-font;
 }
 
 .background {
     background-color: #787878;
-    height: 90vh;
     padding: 20px;
 }
 
@@ -22,96 +22,16 @@ $solid-border: 1px solid black;
     h3 {
         font-family: $primary-font;
     }
-    height: 750px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
 .container-wrap {
-    margin: 0 auto;
-    width: 90%;
-    height: $container-wrap;
-    padding-top: 40px;
-}
-
-.drill-img {
-    width: 45%;
-    background-color: #aba;
-}
-
-.bars,
-.value {
-    float: right;
-    margin: 0;
-}
-
-.inputs,
-.details {
-    float: left;
-}
-
-.inputs,
-.bars {
-    width: 49%;
-    background-color: #aba;
-}
-
-.bars,
-.value {
-    float: right;
-    margin: 0;
-}
-
-.details {
-    width: 50%;
-}
-
-.name-wrap {
-    * {
-        float: left;
-        height: auto;
-        margin: 0;
-    }
-    .warning {
-        padding-left: 1em;
-    }
-}
-
-.details,
-.bar {
-    clear: both;
-}
-
-.detail {
-    margin-top: 50px;
-}
-
-
-/* BARS AND THEIR CORRESPONDING VALUES */
-
-.bar {
-    background-color: green;
-    height: 20px;
-    margin-top: 40px;
-}
-
-.hookload>.bar {
-    width: 32%;
-}
-
-.torque>.bar {
-    width: 60%;
-}
-
-.pump-pressure>.bar {
-    width: 18%;
-}
-
-.spp>.bar {
-    width: 68%;
-}
-
-.npt-detail>.bar {
-    width: 65%;
+    padding: 20px 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
 }

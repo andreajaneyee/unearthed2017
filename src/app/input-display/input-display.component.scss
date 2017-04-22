@@ -1,0 +1,95 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+//Google fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+$primary-font: 'Roboto',
+sans-serif;
+// SIZING VARIABLES
+$section-width: 550px;
+$bar-width: 400px;
+section.wrapper {
+    background-color: white;
+    width: $section-width;
+    padding: 20px;
+    section.filter {
+        width: 100%;
+        h3 {
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+        }
+        ul.tabs {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            li.tab {
+                @include transition-basic();
+                width: 33%;
+                text-transform: uppercase;
+                font-size: 17px;
+                background-color: white;
+                text-align: center;
+                padding: 10px;
+                border: 1px solid rgb(100, 100, 100);
+                &:hover {
+                    background-color: rgb(50, 50, 50);
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    section.input {
+        margin: 20px 0;
+        border: 0px solid black;
+        h3 {
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+        }
+        section.bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            img.icon {
+                @include transition-basic();
+                width: 20px;
+                height: 20px;
+                padding: 10px;
+                border: 1px solid rgba(0, 0, 0, 0);
+                &:hover {
+                    cursor: pointer;
+                    border-color: rgb(50, 50, 50);
+                }
+                &:first-child {
+                    margin-right: 10px;
+                }
+                &:last-child {
+                    margin-left: 10px;
+                }
+            }
+            article.bar {
+                $content-height: 40px;
+                position: relative;
+                width: $bar-width;
+                border: 1px solid rgb(50, 50, 50);
+                display: flex;
+                flex-direction: row;
+                img.bar-content {
+                    height: $content-height;
+                    background-color: rgb(50, 50, 50);
+                }
+                img.bar-maximum {
+                    position: absolute;
+                    right: 0;
+                    height: $content-height;
+                    width: $bar-width / 100 * 15;
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
