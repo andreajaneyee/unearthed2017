@@ -12,8 +12,8 @@ import { PasonRow } from './classes/pasonRow';
   * SERVER DEVELOPMENT LINKS
   */
 const DEVELOPMENT_SERVER: string = 'http://localhost:8080';
-const PRODUCTION_SERVER: string = 'https://application-server-dot-source-stash.appspot.com';
-const SERVER: string = DEVELOPMENT_SERVER;
+const PRODUCTION_SERVER: string = 'https://application-server-dot-drillr-optimizer.appspot.com';
+const SERVER: string = PRODUCTION_SERVER;
 
 
 @Injectable()
