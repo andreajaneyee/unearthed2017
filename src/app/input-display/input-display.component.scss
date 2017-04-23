@@ -15,6 +15,9 @@ section.wrapper {
     align-items: center;
     background-color: white;
     width: $section-width;
+    @include media(small-screen) {
+        $sectionWidth: 300px;
+    }
     padding: 20px;
     section.filter {
         width: 100%;
@@ -62,6 +65,7 @@ section.wrapper {
             justify-content: space-between;
             img.icon {
                 @include transition-basic();
+                margin-top: 20px;
                 width: 20px;
                 height: 20px;
                 padding: 10px;

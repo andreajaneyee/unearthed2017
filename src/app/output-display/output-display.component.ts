@@ -15,7 +15,7 @@ export const ROP_INDEX = 8;
 export const TORQUE_MAXIMUM = 150;
 export const STANDPIPE_PRESSURE_MAXIMUM = 3000;
 export const FLOW_MAXIMUM = 100;
-export const ROP_MAXIMUM = 110;
+export const ROP_MAXIMUM = 200;
 
 @Component({
   selector: 'app-output-display',
@@ -91,7 +91,7 @@ export class OutputDisplayComponent implements OnInit {
             // update the mock techlimit
             this.torqueTL = Math.floor(TORQUE_MAXIMUM * 0.8 + TORQUE_MAXIMUM * 0.01 * Math.random());
             this.pressureTL = Math.floor(STANDPIPE_PRESSURE_MAXIMUM * 0.6 + STANDPIPE_PRESSURE_MAXIMUM * 0.1 * Math.random());
-            this.flowTL = Math.floor(FLOW_MAXIMUM * 0.8 + FLOW_MAXIMUM * 0.1 * Math.random());
+            this.flowTL = Math.floor(FLOW_MAXIMUM * 0.95 + FLOW_MAXIMUM * 0.04 * Math.random());
             this.ropTL = Math.floor(ROP_MAXIMUM * 0.7 + ROP_MAXIMUM * 0.2 * Math.random());
             this.updateTechLimitMark();
             this.updateOutputsDisplay();

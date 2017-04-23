@@ -148,7 +148,7 @@ export class InputDisplayComponent implements OnInit {
             // this.weightTL = Math.floor(WEIGHT_MAXIMUM * 0.6 + WEIGHT_MAXIMUM * 0.15 * Math.random());
             this.rotaryTL = 0;
             this.weightTL = 0;
-            this.pressureTL = Math.floor(DIFF_PRESSURE_MAXIMUM * 0.8 + DIFF_PRESSURE_MAXIMUM * 0.05 * Math.random());
+            this.pressureTL = Math.floor(DIFF_PRESSURE_MAXIMUM * 0.85 + DIFF_PRESSURE_MAXIMUM * 0.1 * Math.random());
             this.pumpTL = Math.floor(PUMP_OUTPUT_MAXIMUM * 0.7 + PUMP_OUTPUT_MAXIMUM * 0.1 * Math.random());
             this.updateTechLimitMark();
 

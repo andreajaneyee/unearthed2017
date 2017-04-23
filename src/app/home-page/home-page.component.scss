@@ -36,12 +36,21 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
+    @include media(mobile-screen) {
+        flex-direction: column;
+    }
+    // app-input-display {
+    //     width: 60%;
+    // }
+    // app-output-display {
+    //     width: 40%;
+    // }
 }
 
 button {
     @include transition-basic();
+    margin: 10px 0;
     margin-left: 10px;
-    margin-top: 20px;
     padding: 10px 40px;
     background-color: $navy;
     color: white;
