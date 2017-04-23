@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { DIFF_PRESSURE_MAXIMUM } from '../input-display/input-display.component';
+import { REFRESH_RATE } from '../classes/constants';
 
 export const INPUT_BAR_WIDTH = 360;
 
@@ -13,7 +13,7 @@ export const ROP_INDEX = 8;
 
 // VARIABLES TO CONTROL THE RANGES OF THE OUTPUTS
 export const TORQUE_MAXIMUM = 150;
-export const STANDPIPE_PRESSURE_MAXIMUM = 2500;
+export const STANDPIPE_PRESSURE_MAXIMUM = 3000;
 export const FLOW_MAXIMUM = 100;
 export const ROP_MAXIMUM = 110;
 
@@ -89,15 +89,15 @@ export class OutputDisplayComponent implements OnInit {
             this.ropValue = eval(this.currentRow[ROP_INDEX]);
 
             // update the mock techlimit
-            this.torqueTL = TORQUE_MAXIMUM * 0.8 + TORQUE_MAXIMUM * 0.01 * Math.random();
-            this.pressureTL = DIFF_PRESSURE_MAXIMUM * 0.8 + DIFF_PRESSURE_MAXIMUM * 0.01 * Math.random();
-            this.flowTL = FLOW_MAXIMUM * 0.8 + FLOW_MAXIMUM * 0.01 * Math.random();
-            this.ropTL = ROP_MAXIMUM * 0.7 + ROP_MAXIMUM * 0.2 * Math.random();
+            this.torqueTL = Math.floor(TORQUE_MAXIMUM * 0.8 + TORQUE_MAXIMUM * 0.01 * Math.random());
+            this.pressureTL = Math.floor(STANDPIPE_PRESSURE_MAXIMUM * 0.6 + STANDPIPE_PRESSURE_MAXIMUM * 0.1 * Math.random());
+            this.flowTL = Math.floor(FLOW_MAXIMUM * 0.8 + FLOW_MAXIMUM * 0.1 * Math.random());
+            this.ropTL = Math.floor(ROP_MAXIMUM * 0.7 + ROP_MAXIMUM * 0.2 * Math.random());
             this.updateTechLimitMark();
             this.updateOutputsDisplay();
           }
         }
-      }, 100)
+      }, REFRESH_RATE)
     })
   }
 
@@ -107,7 +107,7 @@ export class OutputDisplayComponent implements OnInit {
     temporary = this.torqueTL / TORQUE_MAXIMUM * 100;
     this.torqueTLPosition = temporary + '%';
 
-    temporary = this.pressureTL / DIFF_PRESSURE_MAXIMUM * 100;
+    temporary = this.pressureTL / STANDPIPE_PRESSURE_MAXIMUM * 100;
     this.pressureTLPosition = temporary + '%';
 
     temporary = this.flowTL / FLOW_MAXIMUM * 100;
@@ -119,7 +119,7 @@ export class OutputDisplayComponent implements OnInit {
 
   updateOutputsDisplay() {
     this.torque = (this.torqueValue + this.torqueAdjOffset) / TORQUE_MAXIMUM * 100;
-    this.pressure = (this.pressureValue + this.pressureAdjOffset) / DIFF_PRESSURE_MAXIMUM * 100;
+    this.pressure = (this.pressureValue + this.pressureAdjOffset) / STANDPIPE_PRESSURE_MAXIMUM * 100;
     this.flow = (this.flowValue + this.flowAdjOffset) / FLOW_MAXIMUM * 100;
     this.rop = (this.ropValue + this.ropAdjOffset) / ROP_MAXIMUM * 100;
     this.updateOutputWidths();

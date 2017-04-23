@@ -1,4 +1,6 @@
 @import '../sass/variables';
+@import '../sass/colors';
+@import '../sass/mixins';
 //Google fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 $primary-font: 'Roboto',
@@ -34,4 +36,23 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
+}
+
+button {
+    @include transition-basic();
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 10px 40px;
+    background-color: $navy;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    text-transform: uppercase;
+    &:hover {
+        background-color: $lightNavy;
+        border-color: rgba(200, 200, 200, 0.8);
+        cursor: pointer;
+    }
+    &:first-of-type {
+        margin-left: 50px;
+    }
 }

@@ -1,5 +1,5 @@
 <section class="wrapper">
-    <section class="filter" [style.order]="-1">
+    <section class="filter">
         <h3>Filters</h3>
         <ul class="tabs">
             <li class="tab" [class.tab-active]="isAllTabs" (click)="showAll()">All</li>
@@ -8,48 +8,72 @@
         </ul>
     </section>
 
-    <section class="input" *ngIf="showRotary" [style.order]="rotaryOrder">
-        <h3>ROTARY RPM</h3>
-        <section class="bar ">
-            <img class="icon " (click)="decrease('rotary')" src="assets/images/minus.png " alt="minus icon ">
-            <article class="bar ">
-                <img class="bar-content " [style.width]="rotary " />
-                <img class="bar-maximum " />
-            </article>
-            <img class="icon " (click)="increase('rotary')" src="assets/images/plus.png " alt="plus icon ">
-        </section>
-    </section>
-    <section class="input" *ngIf="showWeight" [style.order]="weightOrder">
-        <h3>Weight on bit</h3>
-        <section class="bar ">
-            <img class="icon" (click)="decrease('weight')" src="assets/images/minus.png " alt="minus icon ">
-            <article class="bar ">
-                <img class="bar-content " [style.width]="weight " />
-                <img class="bar-maximum " />
-            </article>
-            <img class="icon " (click)="increase('weight')" src="assets/images/plus.png " alt="plus icon ">
-        </section>
-    </section>
-    <section class="input" *ngIf="showDiffPressure" [style.order]="pressureOrder">
-        <h3>differential pressure</h3>
-        <section class="bar ">
-            <img class="icon " (click)="decrease('pressure')" src="assets/images/minus.png " alt="minus icon ">
-            <article class="bar ">
-                <img class="bar-content " [style.width]="diffPressure " />
-                <img class="bar-maximum " />
-            </article>
-            <img class="icon " (click)="increase('pressure')" src="assets/images/plus.png " alt="plus icon ">
-        </section>
-    </section>
-    <section class="input" *ngIf="showPump" [style.order]="pumpOrder">
+    <section class="input" *ngIf="showPump">
         <h3>Pump Output</h3>
         <section class="bar ">
             <img class="icon" (click)="decrease('pump')" src="assets/images/minus.png " alt="minus icon ">
             <article class="bar ">
                 <img class="bar-content " [style.width]="pumpOutput " />
-                <img class="bar-maximum " />
+                <img class="bar-maximum " [style.width]="pumpDanger" />
+                <img class="bar-safe" [style.width]="pumpTLSafePosition" [style.right]="pumpTLRight" />
+                <article class="techlimit" [style.left]="pumpTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{pumpTL}}</span>
+                </article>
             </article>
             <img class="icon" (click)="increase('pump')" src="assets/images/plus.png " alt="plus icon ">
         </section>
     </section>
+
+    <section class="input" *ngIf="showRotary">
+        <h3>ROTARY RPM</h3>
+        <section class="bar ">
+            <img class="icon " (click)="decrease('rotary')" src="assets/images/minus.png " alt="minus icon ">
+            <article class="bar">
+                <img class="bar-content " [style.width]="rotary " />
+                <img class="bar-maximum" [style.width]="rotaryDanger" />
+                <img class="bar-safe" [style.width]="rotaryTLSafePosition" [style.right]="rotaryTLRight" />
+                <article class="techlimit" [style.left]="rotaryTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{rotaryTL}}</span>
+                </article>
+            </article>
+            <img class="icon " (click)="increase('rotary')" src="assets/images/plus.png " alt="plus icon ">
+        </section>
+    </section>
+
+    <section class="input" *ngIf="showWeight">
+        <h3>Weight on bit</h3>
+        <section class="bar ">
+            <img class="icon" (click)="decrease('weight')" src="assets/images/minus.png " alt="minus icon ">
+            <article class="bar ">
+                <img class="bar-content " [style.width]="weight " />
+                <img class="bar-maximum " [style.width]="weightDanger" />
+                <img class="bar-safe" [style.width]="weightTLSafePosition" [style.right]="weightTLRight" />
+                <article class="techlimit" [style.left]="weightTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{weightTL}}</span>
+                </article>
+            </article>
+            <img class="icon " (click)="increase('weight')" src="assets/images/plus.png " alt="plus icon ">
+        </section>
+    </section>
+
+    <section class="input" *ngIf="showDiffPressure">
+        <h3>differential pressure</h3>
+        <section class="bar ">
+            <img class="icon " (click)="decrease('pressure')" src="assets/images/minus.png " alt="minus icon ">
+            <article class="bar ">
+                <img class="bar-content " [style.width]="diffPressure " />
+                <img class="bar-maximum" [style.width]="pressureDanger" />
+                <img class="bar-safe" [style.width]="pressureTLSafePosition" [style.right]="pressureTLRight" />
+                <article class="techlimit" [style.left]="pressureTLPosition">
+                    <img src="assets/images/benchmark.png" alt="Technical Limit" class="techlimit">
+                    <span>{{pressureTL}}</span>
+                </article>
+            </article>
+            <img class="icon " (click)="increase('pressure')" src="assets/images/plus.png " alt="plus icon ">
+        </section>
+    </section>
+
 </section>

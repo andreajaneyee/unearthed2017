@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { INPUT_BAR_WIDTH } from '../output-display/output-display.component';
+import { REFRESH_RATE } from '../classes/constants';
 
 export const OUTPUT_BAR_WIDTH = 400;
 
@@ -15,6 +16,12 @@ export const ROTARY_MAXIMUM = 100;
 export const WEIGHT_MAXIMUM = 50000;
 export const DIFF_PRESSURE_MAXIMUM = 1500;
 export const PUMP_OUTPUT_MAXIMUM = 450;
+
+// CONST DANGER ZONES - IN PERCENTAGES
+export const ROTARY_DANGER = 0;
+export const WEIGHT_DANGER = 0;
+export const PRESSURE_DANGER = 0;
+export const PUMP_DANGER = 15;
 
 // VARIABLES TO CONTROL HOW MUCH IS ADDED/REMOVED PER CLICK
 export const ROTARY_INCREMENT = ROTARY_MAXIMUM * 0.05;
@@ -44,12 +51,39 @@ export class InputDisplayComponent implements OnInit {
   pressureOrder: number = 1;
   pumpOrder: number = 1;
 
+  // DANGER ZONE FOR INPUTS
+  rotaryDanger: string = '15%';
+  weightDanger: string = '15%';
+  pressureDanger: string = '15%';
+  pumpDanger: string = '15%';
+
+  // MOCK TECHLIMIT VALUES
+  rotaryTL: number = 0;
+  weightTL: number = 0;
+  pressureTL: number = 0;
+  pumpTL: number = 0;
+  // TECHLIMIT RIGHT POSITION
+  rotaryTLRight: string = '15%';
+  weightTLRight: string = '15%';
+  pressureTLRight: string = '15%';
+  pumpTLRight: string = '15%';
+  // TECHLIMIT MARK POSITIONS
+  rotaryTLPosition: string = '0px';
+  weightTLPosition: string = '0px';
+  pressureTLPosition: string = '0px';
+  pumpTLPosition: string = '0px';
+  // TECH LIMIT SAFETY
+  rotaryTLSafePosition: string = '0px';
+  weightTLSafePosition: string = '0px';
+  pressureTLSafePosition: string = '0px';
+  pumpTLSafePosition: string = '0px';
+
 
   // VARIABLES TO MOCK INPUTS
   rotaryParam: number = 0;
   weightParam: number = 0;
-  pressureParam: number = 0;
-  pumpParam: number = 0;
+  pressureParam: number = 270;
+  pumpParam: number = 153;
 
   // Offsets to "mock" the improvements
   rotaryOffset: number = 0;
@@ -76,6 +110,17 @@ export class InputDisplayComponent implements OnInit {
   isPaused: boolean = false;
 
   constructor(private dataService: DataService) {
+    // UPDATE SIZE OF DANGER ZONE
+    this.rotaryDanger = ROTARY_DANGER + '%';
+    this.weightDanger = WEIGHT_DANGER + '%';
+    this.pumpDanger = PUMP_DANGER + '%';
+    this.pressureDanger = PRESSURE_DANGER + '%';
+    // UPDATE THE RIGHT OF THE SAFE ZONE
+    this.rotaryTLRight = ROTARY_DANGER + '%';
+    this.weightTLRight = WEIGHT_DANGER + '%';
+    this.pumpTLRight = PUMP_DANGER + '%';
+    this.pressureTLRight = PRESSURE_DANGER + '%';
+
     this.updateInputsDisplay();
   }
 
@@ -98,10 +143,19 @@ export class InputDisplayComponent implements OnInit {
             // Update the widths
             // this.updateInputsDisplay();
 
+            // Update the mock techlimit
+            // this.rotaryTL = Math.floor(ROTARY_MAXIMUM * 0.5 + ROTARY_MAXIMUM * 0.2 * Math.random());
+            // this.weightTL = Math.floor(WEIGHT_MAXIMUM * 0.6 + WEIGHT_MAXIMUM * 0.15 * Math.random());
+            this.rotaryTL = 0;
+            this.weightTL = 0;
+            this.pressureTL = Math.floor(DIFF_PRESSURE_MAXIMUM * 0.8 + DIFF_PRESSURE_MAXIMUM * 0.05 * Math.random());
+            this.pumpTL = Math.floor(PUMP_OUTPUT_MAXIMUM * 0.7 + PUMP_OUTPUT_MAXIMUM * 0.1 * Math.random());
+            this.updateTechLimitMark();
+
           }
         }
 
-      }, 10)
+      }, REFRESH_RATE)
     })
   }
 
@@ -128,6 +182,42 @@ export class InputDisplayComponent implements OnInit {
       this.pumpParam = (this.pumpParam - PUMP_INCREMENT);
     }
     this.updateInputsDisplay();
+  }
+
+  updateTechLimitMark() {
+    let temporary: number;
+
+    temporary = Math.floor(this.rotaryTL / ROTARY_MAXIMUM * 100);
+    this.rotaryTLPosition = temporary + '%';
+    console.log(this.rotaryTLPosition);
+
+    temporary = Math.floor(this.pressureTL / DIFF_PRESSURE_MAXIMUM * 100);
+    this.pressureTLPosition = temporary + '%';
+
+    temporary = Math.floor(this.weightTL / WEIGHT_MAXIMUM * 100);
+    this.weightTLPosition = temporary + '%';
+
+    temporary = Math.floor(this.pumpTL / PUMP_OUTPUT_MAXIMUM * 100);
+    this.pumpTLPosition = temporary + '%';
+
+    this.updateSafetyPosition();
+  }
+
+  updateSafetyPosition() {
+    let temporary: number;
+
+    temporary = 100 - (this.rotaryTL / ROTARY_MAXIMUM * 100) - ROTARY_DANGER;
+    this.rotaryTLSafePosition = temporary + '%';
+    
+    temporary = 100 - (this.pressureTL / DIFF_PRESSURE_MAXIMUM * 100) - PRESSURE_DANGER;
+    this.pressureTLSafePosition = temporary + '%';
+
+    temporary = 100 - (this.weightTL / WEIGHT_MAXIMUM * 100) - WEIGHT_DANGER;
+    this.weightTLSafePosition = temporary + '%';
+
+    temporary = 100 - (this.pumpTL / PUMP_OUTPUT_MAXIMUM * 100) - PUMP_DANGER;
+    this.pumpTLSafePosition = temporary + '%';
+
   }
 
   /**

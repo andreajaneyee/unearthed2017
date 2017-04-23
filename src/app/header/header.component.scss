@@ -25,20 +25,34 @@ div.wrapper {
         padding-left: 1em;
     }
     div.time-wrap {
-        p.times {
-            text-align: center;
+        display: flex;
+        flex-direction: row;
+        section {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 10px;
+            justify-content: center;
+            p {
+                margin: 0;
+                padding: 0;
+                font-size: 17px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            p.times {
+                font-size: 27px;
+            }
+            p.name {
+                font-size: 14px;
+            }
         }
     }
     button {
         width: 200px;
-        background-color: #2d2d2d;
+        background-color: $green;
         text-transform: uppercase;
         color: white;
+        padding: 20px 40px;
         border: none;
-        span.horn-icon {
-            width: 50px;
-            height: 50px;
-            color: white;
-        }
     }
 }
