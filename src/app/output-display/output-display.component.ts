@@ -73,7 +73,7 @@ export class OutputDisplayComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getScenarioData().subscribe(wholeData => {
+    this.dataService.getScenarioData().then(wholeData => {
       this.data = wholeData.slice(1);
       this.currentRow = this.data[0];
       setInterval(() => {

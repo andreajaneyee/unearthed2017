@@ -20,7 +20,7 @@ export class DataTestingComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getScenarioData().subscribe(wholeData => {
+    this.dataService.getScenarioData().then(wholeData => {
       this.label = wholeData[0];
       this.data = wholeData.slice(1);
       this.currentRow = this.data[0];

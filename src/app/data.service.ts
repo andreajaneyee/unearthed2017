@@ -6,7 +6,13 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
+// declare function require(name: string);
+// let csv = require('fast-csv');
+// declare var fs;
+// console.log(fs);
+
 import { PasonRow } from './classes/pasonRow';
+import { Deferred } from './classes/deferred';
 
 /**
   * SERVER DEVELOPMENT LINKS
@@ -14,7 +20,6 @@ import { PasonRow } from './classes/pasonRow';
 const DEVELOPMENT_SERVER: string = 'http://localhost:8080';
 const PRODUCTION_SERVER: string = 'https://application-server-dot-drillr-optimizer.appspot.com';
 const SERVER: string = PRODUCTION_SERVER;
-
 
 @Injectable()
 export class DataService {
@@ -24,16 +29,32 @@ export class DataService {
   /**
    * Get the data for the optimization scenario
    */
-  getScenarioData(): Observable<PasonRow[]> {
-    let options: RequestOptions;
-    this.setupHeaderOptions(options);
+  getScenarioData(): Promise<PasonRow[]> {
+    let deferredPromise = new Deferred<PasonRow[]>();
+    
+    this.http.request('./assets/data/mockdata_json.json').map(res => {
+      deferredPromise.resolve(res.json())
+    }).subscribe();
 
-    return this.http.get(
-      SERVER + '/data',
-      options
-    ).map(response => {
-      return response.json();
-    })
+    // csv.fromPath('assets/data/mockdata_prod_large_active.csv').on(
+    //   'data', (data) => {
+    //     allData.push(data);
+    //   }
+    // ).on("end", () => {
+    //   deferredPromise.resolve(allData);
+    // })
+
+    // let options: RequestOptions;
+    // this.setupHeaderOptions(options);
+
+    // return this.http.get(
+    //   SERVER + '/data',
+    //   options
+    // ).map(response => {
+    //   return response.json();
+    // })
+
+    return deferredPromise.promise;
   }
 
   /**

@@ -125,7 +125,7 @@ export class InputDisplayComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getScenarioData().subscribe(wholeData => {
+    this.dataService.getScenarioData().then(wholeData => {
       this.data = wholeData.slice(1);
       this.currentRow = this.data[0];
       console.log(this.currentRow);
